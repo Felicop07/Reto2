@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PanelManager : MonoBehaviour
 {
-    public static int panel = 1;
+    public static int panel = 0;
     AudioSource audi;
     private bool comAudio = false;
     public int panelSelect;
     public void changePanel()
     {
-        PanelManager.panel = panelSelect;
+        panel = panelSelect;
     }
     public void LoadController()
     {
