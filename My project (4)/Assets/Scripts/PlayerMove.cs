@@ -62,6 +62,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void JumpController()
     {
+        //Debug.Log("DetectGround.checkGround: "+ DetectGround.checkGround);
         if (DetectGround.checkGround == true)
         {
             ani.SetBool("Jump", false);
@@ -73,7 +74,7 @@ public class PlayerMove : MonoBehaviour
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumping);
             }
         }
-        else if (DetectGround.checkGround == false)
+        else 
         {
             ani.SetBool("Jump", true);
             if (doubleJump && Input.GetKeyDown("space"))
@@ -87,17 +88,19 @@ public class PlayerMove : MonoBehaviour
     }
     private void Appering()
     {
-        sR.enabled = false;
-        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        sR.enabled =false;
+        gameObject.SetActive(true);
         gameObject.transform.position = new Vector3(inicioX, inicioY, 0);
         DamagePlayer.damageTime += Time.deltaTime;
+        Debug.Log("DamagePlayer.damageTime : " + DamagePlayer.damageTime);
         if (DamagePlayer.damageTime > 0.5f)
         {
             sR.enabled = true;
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            //gameObject.SetActive(true);
             appearingActive = false;
             DamagePlayer.damageSignal = false;
             DamagePlayer.Lesslife();
         }
+        
     }
 }

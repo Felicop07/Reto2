@@ -10,6 +10,7 @@ public class DetectGround: MonoBehaviour
         if (collision.CompareTag("Suelo"))
         {
             checkGround = true;
+            //Debug.Log("Trigger Suelo");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -17,6 +18,7 @@ public class DetectGround: MonoBehaviour
         if (collision.CompareTag("Suelo"))
         {
             checkGround = false;
+            //Debug.Log("Trigger exit");
         }
     }
 }
